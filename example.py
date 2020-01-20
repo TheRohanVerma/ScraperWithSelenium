@@ -20,18 +20,18 @@ for f in files:
     driver = webdriver.Chrome()
     driver.get('http://textalyser.net/')
     
-    #chooses the file and uploads it
+    #uploads the file and then click on submit button
     choose_file = driver.find_element_by_name('file_to_analyze')
     file_location = os.path.join(f'{f}')
     choose_file.send_keys(file_location)    
     submit_assignment = driver.find_element_by_xpath('/html/body/form/input')
     submit_assignment.click()
     
-    #clicks on submit button
+    #finds the data you want to scrap
     user_message = driver.find_elements_by_xpath('/html/body/table[8]/tbody/tr[4]/td[2]')[0]
     comment = user_message.text
     
-    #scraps the data from the page that opens
+    #writes the extracted on a file
     with open('lexicaldensit.txt','a') as huh:
         huh.write(f[30:])
         huh.write(' ')
