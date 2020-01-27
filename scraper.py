@@ -1,9 +1,6 @@
 from selenium import webdriver
 import os
 
-
-
-
 path = #path of folder which contains files you want to upload and calculate various metrices of
 files = []
 # r=root, d=directories, f = files
@@ -13,18 +10,17 @@ for r, d, f in os.walk(path):
             files.append(os.path.join(r,file))
 
 
-
 #runs the following code for every file
 for f in files:
     #uses google chrome to open website
     driver = webdriver.Chrome()
-    driver.get(#website you want to scrap data from)
+    driver.get#(url of website you want to scrap data from)
     
     #chooses the file and uploads it
-    choose_file = driver.find_element_by_name(#id/name of the upload button element)
+    choose_file = driver.find_element_by_name #(id/name of the upload button element)
     file_location = os.path.join(f'{f}')
     choose_file.send_keys(file_location)    
-    submit_assignment = driver.find_element_by_xpath(#xpath of submit button element)
+    submit_assignment = driver.find_element_by_xpath#(xpath of submit button element in quotes)
     submit_assignment.click()
     
     #scraps data
